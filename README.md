@@ -145,12 +145,6 @@ If you’d like to **collaborate, discuss UI/UX ideas, or hire me** for frontend
 
 ---
 
-## 🔖 Hashtags
-
-#Nextjs #TailwindCSS #FramerMotion #ReactJS #TypeScript #RadixUI #WebDesign #UXDesign #UIDesign #FrontendDevelopment #CreativeAgency #AI #ArtificialIntelligence #AIAgency #DigitalAgency #WebDevelopment #Innovation #UXGENIE #BeTomorrow #ModernWeb #WebAnimation #CreativeDeveloper #FrontendEngineer #DesignInspiration #UIAnimation #FutureOfWeb #MotionDesign #WebExperience #TechInnovation #AIInnovation #WebPerformance #DigitalTransformation #DesignThinking #JavaScript #Frontend #DeveloperShowcase
-
----
-
 ## 📝 License
 
 This project is licensed under the **MIT License** — feel free to use and modify with attribution.
