@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*  Custom Fonts  */
+@font-face {
+  font-family: "Parabole Display";
+  src: url("/fonts/Parabole-DisplayRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "Parabole Text";
+  src: url("/fonts/Parabole-TextRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saol Display";
+  src: url("/fonts/Saol-Display-Medium-Italic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*  Theme Variables  */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: "Parabole Display", "PP Neue Montreal", "Saol Display",
+      sans-serif;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Background animation */
+.bg-grid {
+  background-color: #e6f0ff; /* pure white base */
+  background-image: linear-gradient(
+      to right,
+      rgba(215, 228, 255) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(215, 228, 255) 1px, transparent 1px),
+    radial-gradient(circle at top left, #e6f0ff 0%, #f2f8ff 100%);
+  background-size: 75px 75px, 75px 75px, 100% 100%;
+  background-position: 0 0, 0 0, center;
+  animation: subtleMove 30s linear infinite;
+}
+
+@keyframes subtleMove {
+  0% {
+    background-position: 0px 0px, 0px 0px, center;
+  }
+  50% {
+    background-position: 30px 30px, 30px 30px, center;
+  }
+  100% {
+    background-position: 0px 0px, 0px 0px, center;
+  }
+}
+
+/* Base background Dark blue*/
+.bg-top-right-glow {
+  position: relative;
+  background: #0f138a; /* ya apni base color */
+  overflow: hidden;
+}
+
+.bg-top-right-glow::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: #2196f1;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.7;
+  pointer-events: none;
 }
