@@ -53,7 +53,7 @@ Clone the repo and install dependencies:
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/your-username/betomorrow-ai-agency.git
+git clone https://github.com/abdud099/Ai-Agency.git
 
 # 2️⃣ Navigate to the project folder
 cd betomorrow-ai-agency
