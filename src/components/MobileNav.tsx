@@ -31,7 +31,7 @@ const MobileNav = () => {
               height={28}
               className="rounded-md"
             />
-            <span className="font-semibold text-xl text-[#0a1628]">
+            <span className="font-semibold text-xl text-white">
               BeTomorrow
             </span>
           </div>

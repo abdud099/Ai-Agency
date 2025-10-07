@@ -8,7 +8,7 @@ import { ClientLogos } from "./ClientLogo";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-top-right-glow overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-top-right-glow overflow-hidden">
       {/* Animated background glows */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

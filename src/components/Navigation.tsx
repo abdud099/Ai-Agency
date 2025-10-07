@@ -23,6 +23,7 @@ export const Navigation = () => {
   const { scrollY } = useScroll();
   const navOpacity = useTransform(scrollY, [0, 100], [0.95, 1]);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [showText, setShowText] = useState(true); // show text initially (hero is in view)
 
   // Scroll hide/show navbar
   useEffect(() => {
@@ -50,6 +51,23 @@ export const Navigation = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const hero = document.querySelector("#hero");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // ✅ show text only when hero is visible
+        setShowText(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
+  
   const toggleLanguage = (lang: string) => {
     setLanguage(lang);
     setLangOpen(false);
@@ -69,7 +87,7 @@ export const Navigation = () => {
           >
             {/* Logo */}
             <Link href="/">
-              <div className="hidden md:flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2 transition-all duration-300">
                 <Image
                   src="/images/icons/logo.png"
                   alt="BeTomorrow"
@@ -77,9 +95,11 @@ export const Navigation = () => {
                   height={28}
                   className="rounded-md"
                 />
-                <span className="font-bold text-xl text-[#0a1628]">
-                  BeTomorrow
-                </span>
+                {showText && (
+                  <span className="font-bold text-xl transition-opacity duration-300 text-white">
+                    BeTomorrow
+                  </span>
+                )}
               </div>
             </Link>
 
